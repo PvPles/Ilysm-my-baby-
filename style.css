@@ -1,0 +1,143 @@
+body {
+    font-family: 'Georgia', serif;
+    background: #fddde3; /* Pastel pink background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* I love my Nergis so much <3 */
+.heart-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart-pattern .heart {
+    position: absolute;
+    color: rgba(255, 105, 180, 0.5);
+    font-size: 50px;
+    animation: float 10s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-20px) rotate(20deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.heart-pattern .heart:nth-child(2) {
+    left: 10%;
+    top: 20%;
+    animation-duration: 8s;
+}
+
+.heart-pattern .heart:nth-child(3) {
+    right: 15%;
+    bottom: 25%;
+    animation-duration: 12s;
+}
+
+.heart-pattern .heart:nth-child(4) {
+    left: 50%;
+    top: 50%;
+    animation-duration: 15s;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    z-index: 2; /* Cute */
+}
+
+.heart {
+    font-size: 120px; /* BIG heart */
+    color: #ff69b4;
+    cursor: pointer;
+    transition: transform 0.5s ease, color 0.5s ease;
+    margin-bottom: 20px; /* Space between heart and letter */
+    z-index: 3; /* Ensure it’s above everything else */
+}
+
+.heart:hover {
+    transform: scale(1.2);
+    color: #ff85c0; /* hover */
+}
+
+.letter {
+    background: rgba(255, 255, 255, 0.95); /* slight */
+    border-radius: 20px; /* corner corners */
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* shadow */
+    max-width: 600px;
+    margin: 0 auto;
+    display: none; /* hiding */
+    text-align: left;
+    position: relative;
+    transform: scale(0.9); /* Slight */
+    transition: transform 0.5s ease;
+}
+
+.letter.show {
+    display: block; /* Unfolded letter */
+    transform: scale(1); /* Full size */
+}
+
+.line {
+    opacity: 0;
+    font-size: 1.5em; /* BIGGER text */
+    margin: 12px 0;
+    position: relative;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.line:nth-child(odd) {
+    color: #333;
+}
+
+.line:nth-child(even) {
+    color: #555;
+}
+
+.line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Decorative hearts */
+.letter::before {
+    content: "❤️";
+    font-size: 40px;
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    transform: rotate(20deg);
+    opacity: 0.5;
+}
+
+.letter::after {
+    content: "❤️";
+    font-size: 40px;
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    transform: rotate(-20deg);
+    opacity: 0.5;
+}
